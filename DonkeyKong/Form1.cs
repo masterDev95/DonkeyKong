@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace DonkeyKong
 {
@@ -15,6 +16,13 @@ namespace DonkeyKong
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Size = new Size(224, 256);
+            //BackgroundImage = new Bitmap
+            Debug.WriteLine(Environment.CurrentDirectory);
         }
     }
 }
