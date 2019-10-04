@@ -15,7 +15,7 @@ namespace DonkeyKong.Objects
         {
             Anchor = AnchorStyles.Bottom;
             Image = Properties.Resources.Idle;
-            Location = new Point(56, 584);
+            Location = new Point(56, 0);
             Size = new Size(48, 48);
         }
 
@@ -25,6 +25,11 @@ namespace DonkeyKong.Objects
             int gravityForce = physix.Gravity;
 
             Location = new Point(Location.X, Location.Y + gravityForce);
+        }
+
+        public void Collide()
+        {
+
         }
     }
 }
