@@ -10,7 +10,7 @@ namespace DonkeyKong.Classes
     {
         public Physics()
         {
-            Gravity = 1;
+            Gravity = 5;
         }
 
         public int Gravity { get; }
