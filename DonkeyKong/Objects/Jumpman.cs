@@ -30,11 +30,19 @@ namespace DonkeyKong.Objects
             Location = new Point(Location.X, Location.Y + gravityForce);
         }
 
-        public void MoveRight()
+        public new void Move(string dir)
         {
             if (!IsInAir)
             {
-                Location = new Point(Location.X + Speed, Location.Y);
+                switch (dir)
+                {
+                    case "left":
+                        Location = new Point(Location.X - Speed, Location.Y);
+                        break;
+                    case "right":
+                        Location = new Point(Location.X + Speed, Location.Y);
+                        break;
+                }
             }
         }
     }

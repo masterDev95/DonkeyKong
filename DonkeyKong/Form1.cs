@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Input;
 using System.Windows.Forms;
 using DonkeyKong.Objects;
-using System.Threading;
+using DonkeyKong.Classes;
 
 namespace DonkeyKong
 {
@@ -20,8 +20,8 @@ namespace DonkeyKong
 
             jumpman = new Jumpman(64, Height - 192);
 
-            var timer = new System.Windows.Forms.Timer();
-            timer.Interval = 16;
+            var timer = new Timer();
+            timer.Interval = 13;
             timer.Tick += new EventHandler(HandleApplicationIdle);
             timer.Start();
             //Application.Idle += HandleApplicationIdle;
@@ -41,49 +41,57 @@ namespace DonkeyKong
 
             CheckCollision();
             KeyboardEvents();
-
-            OnMapUpdated();
-
-            //label1.Text = Convert.ToString(GetFps());
         }
 
         void CheckCollision()
         {
+            bool colision = false;
+
             foreach (Control picturebox in Controls)
             {
-                if (jumpman.Bounds.IntersectsWith(picturebox.Bounds) && picturebox != jumpman)
+                var physix = new Physics();
+                int gravity = physix.Gravity;
+
+                var bounds = new Rectangle(picturebox.Bounds.Location, picturebox.Size);
+                bounds.Location = new Point(bounds.Location.X, bounds.Location.Y - gravity);
+
+                if (jumpman.Bounds.IntersectsWith(bounds) && picturebox != jumpman)
                 {
                     jumpman.IsInAir = false;
-                    jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 5);
+
+                    if (jumpman.Location.Y > bounds.Location.Y)
+                    {
+                        jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 1);
+                    }
+
+                    colision = true;
                 }
+
+                label1.Text = Convert.ToString(jumpman.Location.Y) + " " + Convert.ToString(bounds.Location.Y);
+            }
+
+            if (!colision)
+            {
+                jumpman.IsInAir = true;
             }
         }
 
         void KeyboardEvents()
         {
+            if (Keyboard.IsKeyDown(Key.Left))
+            {
+                jumpman.Move("left");
+            }
+
             if (Keyboard.IsKeyDown(Key.Right))
             {
-                jumpman.MoveRight();
+                jumpman.Move("right");
             }
 
             if (Keyboard.IsKeyToggled(Key.F5))
             {
                 Application.Restart();
             }
-        }
-
-        void OnMapUpdated()
-        {
-            Interlocked.Increment(ref _frameCount);
-        }
-
-        double GetFps()
-        {
-            double secondsElapsed = (DateTime.Now - _lastCheckTime).TotalSeconds;
-            long count = Interlocked.Exchange(ref _frameCount, 0);
-            double fps = count / secondsElapsed;
-            _lastCheckTime = DateTime.Now;
-            return fps;
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
