@@ -11,20 +11,16 @@ namespace DonkeyKong
     {
         Jumpman jumpman;
 
-        DateTime _lastCheckTime = DateTime.Now;
-        long _frameCount = 0;
-
         public MainWindow()
         {
             InitializeComponent();
 
             jumpman = new Jumpman(64, Height - 192);
 
-            var timer = new Timer();
+            Timer timer = new Timer();
             timer.Interval = 13;
             timer.Tick += new EventHandler(HandleApplicationIdle);
             timer.Start();
-            //Application.Idle += HandleApplicationIdle;
         }
 
         void HandleApplicationIdle(object sender, EventArgs e)
@@ -34,40 +30,44 @@ namespace DonkeyKong
 
         new void Update()
         {
-            if (jumpman.IsInAir)
-            {
-                jumpman.ApplyGravity();
-            }
-
             CheckCollision();
             KeyboardEvents();
+            jumpman.Update();
         }
 
         void CheckCollision()
         {
             bool colision = false;
 
-            foreach (Control picturebox in Controls)
+            foreach (Control control in Controls)
             {
-                var physix = new Physics();
-                int gravity = physix.Gravity;
-
-                var bounds = new Rectangle(picturebox.Bounds.Location, picturebox.Size);
-                bounds.Location = new Point(bounds.Location.X, bounds.Location.Y - gravity);
-
-                if (jumpman.Bounds.IntersectsWith(bounds) && picturebox != jumpman)
+                if (control is PictureBox)
                 {
-                    jumpman.IsInAir = false;
+                    PictureBox pictureBox = (PictureBox)control;
+                    Bitmap floorTexture = Properties.Resources.Floor;
 
-                    if (jumpman.Location.Y > bounds.Location.Y)
+                    if (pictureBox.Name == "Floor")
                     {
-                        jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 1);
+                        var physix = new Physics();
+                        int gravity = physix.Gravity;
+
+                        var bounds = new Rectangle(pictureBox.Bounds.Location, pictureBox.Size);
+                        bounds.Location = new Point(bounds.Location.X, bounds.Location.Y - gravity);
+
+                        if (jumpman.Bounds.IntersectsWith(bounds))
+                        {
+                            jumpman.IsInAir = false;
+                            colision = true;
+
+                            if (bounds.Location.Y - jumpman.Location.Y < 45)
+                            {
+                                jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 1);
+                            }
+
+                            label1.Text = Convert.ToString(bounds.Location.Y - jumpman.Location.Y);
+                        }
                     }
-
-                    colision = true;
                 }
-
-                label1.Text = Convert.ToString(jumpman.Location.Y) + " " + Convert.ToString(bounds.Location.Y);
             }
 
             if (!colision)

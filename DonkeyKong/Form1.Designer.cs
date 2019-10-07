@@ -78,198 +78,198 @@
             // 
             // pictureBox21
             // 
-            this.pictureBox21.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox21.Image")));
+            this.pictureBox21.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox21.Location = new System.Drawing.Point(672, 680);
-            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Name = "Floor";
             this.pictureBox21.Size = new System.Drawing.Size(32, 32);
             this.pictureBox21.TabIndex = 21;
             this.pictureBox21.TabStop = false;
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
+            this.pictureBox22.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox22.Location = new System.Drawing.Point(640, 680);
-            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Name = "Floor";
             this.pictureBox22.Size = new System.Drawing.Size(32, 32);
             this.pictureBox22.TabIndex = 20;
             this.pictureBox22.TabStop = false;
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
+            this.pictureBox19.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox19.Location = new System.Drawing.Point(608, 684);
-            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Name = "Floor";
             this.pictureBox19.Size = new System.Drawing.Size(32, 32);
             this.pictureBox19.TabIndex = 19;
             this.pictureBox19.TabStop = false;
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox20.Image")));
+            this.pictureBox20.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox20.Location = new System.Drawing.Point(576, 684);
-            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Name = "Floor";
             this.pictureBox20.Size = new System.Drawing.Size(32, 32);
             this.pictureBox20.TabIndex = 18;
             this.pictureBox20.TabStop = false;
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox17.Location = new System.Drawing.Point(544, 688);
-            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Name = "Floor";
             this.pictureBox17.Size = new System.Drawing.Size(32, 32);
             this.pictureBox17.TabIndex = 17;
             this.pictureBox17.TabStop = false;
             // 
             // pictureBox18
             // 
-            this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
+            this.pictureBox18.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox18.Location = new System.Drawing.Point(512, 688);
-            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Name = "Floor";
             this.pictureBox18.Size = new System.Drawing.Size(32, 32);
             this.pictureBox18.TabIndex = 16;
             this.pictureBox18.TabStop = false;
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox15.Image")));
+            this.pictureBox15.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox15.Location = new System.Drawing.Point(480, 692);
-            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Name = "Floor";
             this.pictureBox15.Size = new System.Drawing.Size(32, 32);
             this.pictureBox15.TabIndex = 15;
             this.pictureBox15.TabStop = false;
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
+            this.pictureBox16.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox16.Location = new System.Drawing.Point(448, 692);
-            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Name = "Floor";
             this.pictureBox16.Size = new System.Drawing.Size(32, 32);
             this.pictureBox16.TabIndex = 14;
             this.pictureBox16.TabStop = false;
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
+            this.pictureBox13.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox13.Location = new System.Drawing.Point(416, 696);
-            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Name = "Floor";
             this.pictureBox13.Size = new System.Drawing.Size(32, 32);
             this.pictureBox13.TabIndex = 13;
             this.pictureBox13.TabStop = false;
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
+            this.pictureBox14.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox14.Location = new System.Drawing.Point(384, 696);
-            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Name = "Floor";
             this.pictureBox14.Size = new System.Drawing.Size(32, 32);
             this.pictureBox14.TabIndex = 12;
             this.pictureBox14.TabStop = false;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox7.Location = new System.Drawing.Point(352, 696);
-            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Name = "Floor";
             this.pictureBox7.Size = new System.Drawing.Size(32, 32);
             this.pictureBox7.TabIndex = 11;
             this.pictureBox7.TabStop = false;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox8.Location = new System.Drawing.Point(320, 696);
-            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Name = "Floor";
             this.pictureBox8.Size = new System.Drawing.Size(32, 32);
             this.pictureBox8.TabIndex = 10;
             this.pictureBox8.TabStop = false;
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox9.Location = new System.Drawing.Point(288, 696);
-            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Name = "Floor";
             this.pictureBox9.Size = new System.Drawing.Size(32, 32);
             this.pictureBox9.TabIndex = 9;
             this.pictureBox9.TabStop = false;
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox10.Location = new System.Drawing.Point(256, 696);
-            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Name = "Floor";
             this.pictureBox10.Size = new System.Drawing.Size(32, 32);
             this.pictureBox10.TabIndex = 8;
             this.pictureBox10.TabStop = false;
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox11.Location = new System.Drawing.Point(224, 696);
-            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Name = "Floor";
             this.pictureBox11.Size = new System.Drawing.Size(32, 32);
             this.pictureBox11.TabIndex = 7;
             this.pictureBox11.TabStop = false;
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox12.Location = new System.Drawing.Point(192, 696);
-            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Name = "Floor";
             this.pictureBox12.Size = new System.Drawing.Size(32, 32);
             this.pictureBox12.TabIndex = 6;
             this.pictureBox12.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox4.Location = new System.Drawing.Point(160, 696);
-            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Name = "Floor";
             this.pictureBox4.Size = new System.Drawing.Size(32, 32);
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox5.Location = new System.Drawing.Point(128, 696);
-            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Name = "Floor";
             this.pictureBox5.Size = new System.Drawing.Size(32, 32);
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox6.Location = new System.Drawing.Point(96, 696);
-            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Name = "Floor";
             this.pictureBox6.Size = new System.Drawing.Size(32, 32);
             this.pictureBox6.TabIndex = 3;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox3.Location = new System.Drawing.Point(64, 696);
-            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Name = "Floor";
             this.pictureBox3.Size = new System.Drawing.Size(32, 32);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox2.Location = new System.Drawing.Point(32, 696);
-            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Name = "Floor";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::DonkeyKong.Properties.Resources.Floor;
             this.pictureBox1.Location = new System.Drawing.Point(0, 696);
-            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Name = "Floor";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

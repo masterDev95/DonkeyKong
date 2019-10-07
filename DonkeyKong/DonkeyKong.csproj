@@ -96,13 +96,22 @@
     <None Include="Resources\Floor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Idle.png" />
+    <None Include="Resources\IdleLeft.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Run01.png" />
+    <None Include="Resources\IdleRight.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Run02.png" />
+    <None Include="Resources\Run01Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run01Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run02Left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run02Right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

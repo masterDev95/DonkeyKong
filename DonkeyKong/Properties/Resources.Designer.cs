@@ -19,7 +19,7 @@ namespace DonkeyKong.Properties {
     // à l'aide d'un outil, tel que ResGen ou Visual Studio.
     // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
     // avec l'option /str ou régénérez votre projet VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -73,9 +73,9 @@ namespace DonkeyKong.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Idle {
+        internal static System.Drawing.Bitmap IdleLeft {
             get {
-                object obj = ResourceManager.GetObject("Idle", resourceCulture);
+                object obj = ResourceManager.GetObject("IdleLeft", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace DonkeyKong.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Run01 {
+        internal static System.Drawing.Bitmap IdleRight {
             get {
-                object obj = ResourceManager.GetObject("Run01", resourceCulture);
+                object obj = ResourceManager.GetObject("IdleRight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,39 @@ namespace DonkeyKong.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Run02 {
+        internal static System.Drawing.Bitmap Run01Left {
             get {
-                object obj = ResourceManager.GetObject("Run02", resourceCulture);
+                object obj = ResourceManager.GetObject("Run01Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Run01Right {
+            get {
+                object obj = ResourceManager.GetObject("Run01Right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Run02Left {
+            get {
+                object obj = ResourceManager.GetObject("Run02Left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Run02Right {
+            get {
+                object obj = ResourceManager.GetObject("Run02Right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
