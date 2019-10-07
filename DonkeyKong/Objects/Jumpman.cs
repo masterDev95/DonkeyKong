@@ -13,13 +13,13 @@ namespace DonkeyKong.Objects
     {
         public Jumpman(int xSpawn, int ySpawn)
         {
-            //  PictureBox Properties
+            // - PictureBox Properties
             Anchor = AnchorStyles.Bottom;
             Image = Properties.Resources.IdleRight;
             Location = new Point(xSpawn, ySpawn);
             Size = Image.Size;
 
-            //  Jumpman's Properties
+            // - Jumpman's Properties
             Direction = Direction.Right;
             IsInAir = true;
             Speed = 2;

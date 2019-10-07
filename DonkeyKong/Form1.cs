@@ -19,16 +19,11 @@ namespace DonkeyKong
 
             Timer timer = new Timer();
             timer.Interval = 13;
-            timer.Tick += new EventHandler(HandleApplicationIdle);
+            timer.Tick += new EventHandler(Update);
             timer.Start();
         }
 
-        void HandleApplicationIdle(object sender, EventArgs e)
-        {
-            Update();
-        }
-
-        new void Update()
+        void Update(object sender, EventArgs e)
         {
             CheckCollision();
             KeyboardEvents();
@@ -41,31 +36,27 @@ namespace DonkeyKong
 
             foreach (Control control in Controls)
             {
-                if (control is PictureBox)
+                if (control.Name == "Floor")
                 {
-                    PictureBox pictureBox = (PictureBox)control;
-                    Bitmap floorTexture = Properties.Resources.Floor;
+                    var physix = new Physics();
+                    int gravity = physix.Gravity;
 
-                    if (pictureBox.Name == "Floor")
+                    // - Pixel Perfect colision bounds
+                    var bounds = new Rectangle(control.Bounds.Location, control.Size);
+                    bounds.Location = new Point(bounds.Location.X, bounds.Location.Y - gravity);
+
+                    if (jumpman.Bounds.IntersectsWith(bounds))
                     {
-                        var physix = new Physics();
-                        int gravity = physix.Gravity;
+                        jumpman.IsInAir = false;
+                        colision = true;
 
-                        var bounds = new Rectangle(pictureBox.Bounds.Location, pictureBox.Size);
-                        bounds.Location = new Point(bounds.Location.X, bounds.Location.Y - gravity);
-
-                        if (jumpman.Bounds.IntersectsWith(bounds))
+                        // - Raise jumpman if under the wall
+                        if (bounds.Location.Y - jumpman.Location.Y < 45)
                         {
-                            jumpman.IsInAir = false;
-                            colision = true;
-
-                            if (bounds.Location.Y - jumpman.Location.Y < 45)
-                            {
-                                jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 1);
-                            }
-
-                            label1.Text = Convert.ToString(bounds.Location.Y - jumpman.Location.Y);
+                            jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 1);
                         }
+
+                        label1.Text = Convert.ToString(bounds.Location.Y - jumpman.Location.Y);
                     }
                 }
             }
