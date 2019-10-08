@@ -21,13 +21,23 @@ namespace DonkeyKong.Objects
 
             // - Jumpman's Properties
             Direction = Direction.Right;
+            IsJumping = false;
+            JumpHealth = JumpForce;
             IsInAir = true;
+            IsMoving = false;
             Speed = 2;
         }
 
-        Direction Direction { get; set; }
+        const int JumpForce = 15;
+
+        public bool IsMoving { get; set; }
         public bool IsInAir { get; set; }
-        public int Speed { get; }
+
+        Direction Direction { get; set; }
+        bool IsJumping { get; set; }
+        int JumpHealth { get; set; }
+        int Speed { get; }
+
 
         public new void Update()
         {
@@ -38,6 +48,8 @@ namespace DonkeyKong.Objects
 
             UpdateSize();
             UpdateGraphics();
+            UpdateJump();
+            UpdateAirMotion();
         }
 
         void ApplyGravity()
@@ -66,10 +78,38 @@ namespace DonkeyKong.Objects
             }
         }
 
+        void UpdateJump()
+        {
+            if (IsJumping)
+            {
+                Location = new Point(Location.X, Location.Y - JumpHealth);
+                JumpHealth--;
+                IsJumping = JumpHealth <= 0 ? false : true;
+            }
+        }
+
+        void UpdateAirMotion()
+        {
+            if (IsInAir && IsMoving)
+            {
+                switch (Direction)
+                {
+                    case Direction.Left:
+                        Location = new Point(Location.X - Speed, Location.Y);
+                        break;
+                    case Direction.Right:
+                        Location = new Point(Location.X + Speed, Location.Y);
+                        break;
+                }
+            }
+        }
+
         public new void Move(string dir)
         {
             if (!IsInAir)
             {
+                IsMoving = true;
+
                 switch (dir)
                 {
                     case "left":
@@ -82,6 +122,19 @@ namespace DonkeyKong.Objects
                         break;
                 }
             }
+        }
+
+        public void Jump()
+        {
+            if (!IsInAir)
+            {
+                IsJumping = true;
+            }
+        }
+
+        public void ResetJumpForce()
+        {
+            JumpHealth = JumpForce;
         }
     }
 }

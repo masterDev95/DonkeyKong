@@ -23,6 +23,8 @@ namespace DonkeyKong
             timer.Start();
         }
 
+        bool KeyJumpReleased { get; set; }
+
         void Update(object sender, EventArgs e)
         {
             CheckCollision();
@@ -47,6 +49,7 @@ namespace DonkeyKong
 
                     if (jumpman.Bounds.IntersectsWith(bounds))
                     {
+                        jumpman.ResetJumpForce();
                         jumpman.IsInAir = false;
                         colision = true;
 
@@ -69,6 +72,11 @@ namespace DonkeyKong
 
         void KeyboardEvents()
         {
+            if (Keyboard.IsKeyUp(Key.Space))
+            {
+                KeyJumpReleased = true;
+            }
+
             if (Keyboard.IsKeyDown(Key.Left))
             {
                 jumpman.Move("left");
@@ -77,6 +85,17 @@ namespace DonkeyKong
             if (Keyboard.IsKeyDown(Key.Right))
             {
                 jumpman.Move("right");
+            }
+
+            if (Keyboard.IsKeyUp(Key.Left) && Keyboard.IsKeyUp(Key.Right))
+            {
+                jumpman.IsMoving = jumpman.IsInAir ? false : true;
+            }
+
+            if (Keyboard.IsKeyDown(Key.Space) && KeyJumpReleased)
+            {
+                jumpman.Jump();
+                KeyJumpReleased = false;
             }
 
             if (Keyboard.IsKeyToggled(Key.F5))
