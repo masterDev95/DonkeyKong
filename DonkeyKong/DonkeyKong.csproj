@@ -113,5 +113,11 @@
   <ItemGroup>
     <None Include="Resources\Run02Right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JumpLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JumpRight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

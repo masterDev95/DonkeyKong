@@ -1,10 +1,16 @@
 ﻿using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using DonkeyKong.Classes;
 
 enum Direction
 {
     Left, Right
+}
+
+enum State
+{
+    Idle1, Run1, Idle2, Run2, Jump
 }
 
 namespace DonkeyKong.Objects
@@ -20,25 +26,46 @@ namespace DonkeyKong.Objects
             Size = Image.Size;
 
             // - Jumpman's Properties
-            Direction = Direction.Right;
-            IsJumping = false;
-            JumpHealth = JumpForce;
+            // Booleans
             IsInAir = true;
+            IsJumping = false;
             IsMoving = false;
-            Speed = 2;
+
+            // Timers
+            AnimTimer = 0;
+
+            // Enums
+            Direction = Direction.Right;
+            State = State.Idle1;
+
+            // Physics properties
+            JumpHealth = JumpForce;
+            Speed = 3;
         }
 
-        const int JumpForce = 15;
+        // Constants
+        const int AnimTimerLimit = 3;
+        const int JumpForce = 12;
 
-        public bool IsMoving { get; set; }
+        // Public Booleans
         public bool IsInAir { get; set; }
+        public bool IsJumping { get; set; }
+        public bool IsMoving { get; set; }
 
+        //Timers
+        int AnimTimer { get; set; }
+
+        // Enums
         Direction Direction { get; set; }
-        bool IsJumping { get; set; }
+        State State { get; set; }
+
+        // Physics Properties
         int JumpHealth { get; set; }
         int Speed { get; }
 
-
+        // ---------------------------
+        // -- Jumpman main loop update
+        // ---------------------------
         public new void Update()
         {
             if (IsInAir)
@@ -46,12 +73,12 @@ namespace DonkeyKong.Objects
                 ApplyGravity();
             }
 
-            UpdateSize();
             UpdateGraphics();
             UpdateJump();
             UpdateAirMotion();
         }
 
+        // - Gravity loop
         void ApplyGravity()
         {
             Physics physix = new Physics();
@@ -60,24 +87,103 @@ namespace DonkeyKong.Objects
             Location = new Point(Location.X, Location.Y + gravityForce);
         }
 
-        void UpdateSize()
+        // - Graphics loop
+        void UpdateGraphics()
         {
+            // - Floor State
+            if (!IsMoving && !IsInAir)
+            {
+                State = State.Idle1;
+            }
+
+            // - Running state
+            if (IsMoving && !IsInAir && AnimTimer == 0)
+            {
+                switch (State)
+                {
+                    case State.Idle1:
+                        State = State.Run1;
+                        break;
+                    case State.Run1:
+                        State = State.Idle2;
+                        break;
+                    case State.Idle2:
+                        State = State.Run2;
+                        break;
+                    case State.Run2:
+                        State = State.Idle1;
+                        break;
+                    case State.Jump:
+                        State = State.Run1;
+                        break;
+                }
+            }
+
+            // - In air state
+            if (IsInAir)
+            {
+                State = State.Jump;
+            }
+
+            // - Update image according to the state
+            if (Direction == Direction.Left)
+            {
+                switch (State)
+                {
+                    case State.Idle1:
+                        Image = Properties.Resources.IdleLeft;
+                        break;
+                    case State.Run1:
+                        Image = Properties.Resources.Run01Left;
+                        break;
+                    case State.Idle2:
+                        Image = Properties.Resources.IdleLeft;
+                        break;
+                    case State.Run2:
+                        Image = Properties.Resources.Run02Left;
+                        break;
+                    case State.Jump:
+                        Image = Properties.Resources.JumpLeft;
+                        break;
+                }
+            }
+            else
+            {
+                switch (State)
+                {
+                    case State.Idle1:
+                        Image = Properties.Resources.IdleRight;
+                        break;
+                    case State.Run1:
+                        Image = Properties.Resources.Run01Right;
+                        break;
+                    case State.Idle2:
+                        Image = Properties.Resources.IdleRight;
+                        break;
+                    case State.Run2:
+                        Image = Properties.Resources.Run02Right;
+                        break;
+                    case State.Jump:
+                        Image = Properties.Resources.JumpRight;
+                        break;
+                }
+            }
+
+            // - Timer to limit image update speed
+            if (AnimTimer < AnimTimerLimit && IsMoving)
+            {
+                AnimTimer++;
+            }
+            else
+            {
+                AnimTimer = 0;
+            }
+
+            // - Update boundaries according to the image size
             Size = Image.Size;
         }
 
-        void UpdateGraphics()
-        {
-            switch (Direction)
-            {
-                case Direction.Left:
-                    Image = Properties.Resources.IdleLeft;
-                    break;
-                case Direction.Right:
-                    Image = Properties.Resources.IdleRight;
-                    break;
-            }
-        }
-
+        // - Jump loop
         void UpdateJump()
         {
             if (IsJumping)
@@ -88,6 +194,7 @@ namespace DonkeyKong.Objects
             }
         }
 
+        // - Air motion loop (if user move and jump)
         void UpdateAirMotion()
         {
             if (IsInAir && IsMoving)
@@ -104,6 +211,9 @@ namespace DonkeyKong.Objects
             }
         }
 
+        // --------------------------------------------------------------------------------
+        // - Movements function (called by the keyboard event function from the form class)
+        // --------------------------------------------------------------------------------
         public new void Move(string dir)
         {
             if (!IsInAir)
@@ -132,6 +242,7 @@ namespace DonkeyKong.Objects
             }
         }
 
+        // - Function to reset the jump health
         public void ResetJumpForce()
         {
             JumpHealth = JumpForce;

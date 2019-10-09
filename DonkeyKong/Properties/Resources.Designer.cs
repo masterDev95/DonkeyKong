@@ -93,6 +93,26 @@ namespace DonkeyKong.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap JumpLeft {
+            get {
+                object obj = ResourceManager.GetObject("JumpLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap JumpRight {
+            get {
+                object obj = ResourceManager.GetObject("JumpRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Run01Left {
             get {
                 object obj = ResourceManager.GetObject("Run01Left", resourceCulture);

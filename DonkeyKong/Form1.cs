@@ -18,7 +18,7 @@ namespace DonkeyKong
             jumpman = new Jumpman(64, Height - 192);
 
             Timer timer = new Timer();
-            timer.Interval = 13;
+            timer.Interval = 15;
             timer.Tick += new EventHandler(Update);
             timer.Start();
         }
@@ -30,6 +30,8 @@ namespace DonkeyKong
             CheckCollision();
             KeyboardEvents();
             jumpman.Update();
+
+            label1.Text = Convert.ToString(jumpman.IsInAir);
         }
 
         void CheckCollision()
@@ -54,12 +56,10 @@ namespace DonkeyKong
                         colision = true;
 
                         // - Raise jumpman if under the wall
-                        if (bounds.Location.Y - jumpman.Location.Y < 45)
+                        if (bounds.Location.Y - jumpman.Location.Y < 44)
                         {
                             jumpman.Location = new Point(jumpman.Location.X, jumpman.Location.Y - 1);
                         }
-
-                        label1.Text = Convert.ToString(bounds.Location.Y - jumpman.Location.Y);
                     }
                 }
             }
@@ -77,19 +77,26 @@ namespace DonkeyKong
                 KeyJumpReleased = true;
             }
 
-            if (Keyboard.IsKeyDown(Key.Left))
+            if (!(Keyboard.IsKeyDown(Key.Left) && Keyboard.IsKeyDown(Key.Right)))
             {
-                jumpman.Move("left");
-            }
+                if (Keyboard.IsKeyDown(Key.Left))
+                {
+                    jumpman.Move("left");
+                }
 
-            if (Keyboard.IsKeyDown(Key.Right))
+                if (Keyboard.IsKeyDown(Key.Right))
+                {
+                    jumpman.Move("right");
+                }
+            }
+            else
             {
-                jumpman.Move("right");
+                jumpman.IsMoving = jumpman.IsInAir ? jumpman.IsMoving : false;
             }
 
             if (Keyboard.IsKeyUp(Key.Left) && Keyboard.IsKeyUp(Key.Right))
             {
-                jumpman.IsMoving = jumpman.IsInAir ? false : true;
+                jumpman.IsMoving = jumpman.IsInAir ? jumpman.IsMoving : false;
             }
 
             if (Keyboard.IsKeyDown(Key.Space) && KeyJumpReleased)
